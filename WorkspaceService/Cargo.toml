@@ -1,0 +1,6 @@
+[package]
+name = "copiner-workspace-service"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+

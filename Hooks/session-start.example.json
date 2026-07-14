@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "providers": ["mail-summary", "on-call-baseline", "open-tickets"],
+  "note": "示例配置；接入真实数据源前必须完成授权与敏感级别评审"
+}
+
