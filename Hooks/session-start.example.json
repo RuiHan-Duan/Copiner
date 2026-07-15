@@ -1,6 +1,10 @@
 {
   "version": 1,
-  "providers": ["mail-summary", "on-call-baseline", "open-tickets"],
-  "note": "示例配置；接入真实数据源前必须完成授权与敏感级别评审"
+  "sources": [
+    { "id": "mail-summary", "enabled": false, "sensitivity": "unknown" },
+    { "id": "on-call-baseline", "enabled": false, "sensitivity": "internal" },
+    { "id": "git-branches", "enabled": false, "sensitivity": "internal" },
+    { "id": "open-tickets", "enabled": false, "sensitivity": "sensitive" }
+  ],
+  "note": "脱敏示例；所有来源默认禁用，接入前必须完成授权与敏感级别评审"
 }
-

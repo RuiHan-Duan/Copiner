@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://copiner.local/schemas/session-start.schema.json",
+  "title": "Copiner SessionStart Hook Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "sources"],
+  "properties": {
+    "version": { "const": 1 },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "enabled", "sensitivity"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["mail-summary", "on-call-baseline", "git-branches", "open-tickets"]
+          },
+          "enabled": { "type": "boolean" },
+          "sensitivity": {
+            "type": "string",
+            "enum": ["public", "internal", "sensitive", "unknown"]
+          }
+        }
+      },
+      "uniqueItems": true
+    },
+    "note": { "type": "string" }
+  }
+}
