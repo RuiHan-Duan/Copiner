@@ -6,4 +6,4 @@ node_modules/
 dist/
 target/
 *.log
-
+Crates/DesktopHost/gen/

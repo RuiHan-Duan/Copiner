@@ -1,0 +1,31 @@
+name: 缺陷报告
+description: 报告可复现的构建、运行或行为问题
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: 实际行为
+      description: 请脱敏；不要粘贴密钥、真实邮件、客户日志或企业数据。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 环境与验证证据
+      description: 工具版本、脱敏日志、失败命令或截图。
+    validations:
+      required: true

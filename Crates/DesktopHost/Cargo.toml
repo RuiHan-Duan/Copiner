@@ -9,5 +9,5 @@ tauri-build = { version = "2", features = [] }
 
 [dependencies]
 copiner-core-engine = { path = "../CoreEngine" }
+serde = { version = "1", features = ["derive"] }
 tauri = { version = "2", features = [] }
-

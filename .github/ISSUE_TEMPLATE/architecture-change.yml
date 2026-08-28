@@ -1,0 +1,26 @@
+name: 架构或契约变更
+description: 修改目录、公共契约、安全策略、依赖、构建或 CI
+title: "[Architecture] "
+labels: [architecture]
+body:
+  - type: textarea
+    id: reason
+    attributes:
+      label: 变更原因
+      description: 说明现有边界为什么无法满足目标。
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 影响范围
+      description: 列出运行时、调用方、提供方、数据和安全影响。
+    validations:
+      required: true
+  - type: textarea
+    id: plan
+    attributes:
+      label: Plan 与回滚
+      description: 给出 Plans 路径、验证矩阵和独立回滚方式。
+    validations:
+      required: true
