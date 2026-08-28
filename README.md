@@ -23,10 +23,26 @@ Copiner 面向企业内部的非代码工作。员工只与一个 Agent 对话�
 | Node.js | 24.x（CI 24.14.0） | Desktop 前端工具链 |
 | pnpm | 11.12.0 | 唯一前端包管理器 |
 | Rust | stable + rustfmt + clippy | CoreEngine、DesktopHost、WorkspaceService |
-| Tauri 系统依赖 | Tauri 2 官方要求 | 完整桌面开发/打包 |
+| Tauri 系统依赖 | Tauri 2 官方要求；Linux 见下方命令 | 完整桌面开发/打包 |
 | PowerShell | 7.x，可选 | Windows 统一入口 |
 
 不提交 `.env`、Token 或证书。未来 Provider Key 只能从环境或系统密钥链读取。
+
+Ubuntu/Debian 开发环境和 Linux CI 需先安装 Tauri 2 原生依赖：
+
+```bash
+sudo apt-get update
+sudo apt-get install --no-install-recommends -y \
+  libwebkit2gtk-4.1-dev \
+  build-essential \
+  curl \
+  wget \
+  file \
+  libxdo-dev \
+  libssl-dev \
+  libayatana-appindicator3-dev \
+  librsvg2-dev
+```
 
 ## 构建与验证
 

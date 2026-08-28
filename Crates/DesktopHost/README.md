@@ -21,3 +21,5 @@ DesktopHost 可以依赖 `CoreEngine`，但不在命令处理器中复制工作�
 ## 运行
 
 仓库根执行 `make dev`。前端 dev server 固定 `5173`，配置见 `tauri.conf.json`。
+
+Linux 开发与 CI 必须先安装 Tauri 2 的 WebKitGTK 4.1、GTK/GLib、AppIndicator、RSVG、OpenSSL 和 XDo 开发依赖。可复制命令维护在根 `README.md`，CI 的事实来源是 `.github/workflows/ci.yml`；不能通过从 Cargo workspace 排除 DesktopHost 来规避系统依赖。
