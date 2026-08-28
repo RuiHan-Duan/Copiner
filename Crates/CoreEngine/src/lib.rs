@@ -8,5 +8,10 @@ pub mod policy;
 pub mod provider;
 pub mod tool;
 pub mod workflow;
+pub mod workflow_session;
 
 pub use workflow::{Workflow, WorkflowError, WorkflowEvent, WorkflowState};
+pub use workflow_session::{
+    WorkflowAction, WorkflowSession, WorkflowSessionError, WorkflowSessionEvent,
+    WorkflowSessionSnapshot,
+};

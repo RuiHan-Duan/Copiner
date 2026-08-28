@@ -6,10 +6,11 @@
 
 ## 当前实现
 
-- `src/Layout/WorkspaceHeader.vue`：四个产品级可见阶段；
-- `src/TaskFlow/TaskInspector.vue`：Todo/Plan 空态和外部副作用护栏；
-- 当前固定显示 Clarify，对应尚未接入宿主状态的真实情况。
+- `src/Layout/WorkspaceHeader.vue`：以当前任务上下文和轻量阶段轨道呈现宿主返回的精确状态；
+- `src/TaskFlow/TaskInspector.vue`：以 Run Control 工作面展示本地演示 Todo、精确状态、唯一下一动作和批准按钮；
+- 阶段推进通过 DesktopHost 调用 `WorkflowSession::advance`，UI 不自行计算合法迁移；
+- 本次批准只绑定“推进内存状态”，不授权模型、Tool 或外部副作用。
 
 ## 后续接入
 
-DesktopHost 提供只读 workflow snapshot 后，由页面订阅状态并渲染；审批控件必须显示具体动作、目标、参数和有效期，不能提供模糊的永久批准。
+后续仍需补充事件订阅、真实执行错误流和完整动作参数/有效期展示；当前单会话使用命令返回的 snapshot 刷新页面。

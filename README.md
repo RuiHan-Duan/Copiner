@@ -2,14 +2,15 @@
 
 Copiner 面向企业内部的非代码工作。员工只与一个 Agent 对话，由 Harness、CoreEngine 和经授权的工具去协调文档、邮件、问题单、BIOS/BMC 资料及其他系统。
 
-当前仓库是 **M0/M1 可构建工程骨架**：闭环工作流、安全策略、桌面空态、Harness 手册和 Workspace 边界已经成形，但尚未接入真实 LLM、RAG、邮箱、问题单、浏览器自动化或企业数据。
+当前仓库是 **M0/M1 可运行工程骨架**：闭环工作流、安全策略、首个本地 Harness 可见闭环、Harness 手册和 Workspace 边界已经成形，但尚未接入真实 LLM、RAG、邮箱、问题单、浏览器自动化或企业数据。
 
 ## 当前能验证什么
 
 - 工作流强制经过 Clarify → Todos → Plan → Approval → Execute → Feynman → Archive；
 - Unknown/Internal/Sensitive 数据不能路由到 External Provider；
 - 本地或外部写操作在动作级批准前不能执行；
-- Desktop 明确显示“未连接模型”，不生成假对话或业务指标；
+- Desktop 可通过 Tauri 创建并推进单个内存 Workflow，会显示事件与完成摘要；
+- Desktop 始终明确显示“未连接模型”，不生成假对话或业务指标；
 - Desktop 与 Rust workspace 有统一 build/test/lint/CI 入口；
 - Skills、Hooks、Memory、References 使用可审阅的本地文本边界。
 
@@ -84,7 +85,7 @@ pnpm run preview     # 构建后 http://localhost:4173
 │ Desktop/  Vue 3 + TypeScript                                │
 │ Layout · Conversation · TaskFlow · Harness · Shared         │
 └───────────────────────────┬─────────────────────────────────┘
-                            │ Tauri commands/events（待接入）
+                            │ Tauri commands（本地 snapshot 已接入；events 待接入）
 ┌───────────────────────────▼─────────────────────────────────┐
 │ Crates/DesktopHost  本地宿主与适配                           │
 └───────────────────────────┬─────────────────────────────────┘
@@ -132,7 +133,7 @@ Copiner/
 | 闭环 Workflow | 已实现并有单元测试 |
 | Provider 接口/敏感策略 | 骨架已实现；无真实 Provider、成本/降级逻辑 |
 | Tool 注册/动作批准 | 注册与安全判断已实现；无执行器和审计存储 |
-| Desktop | 可构建空态；未绑定 CoreEngine 实时状态 |
+| Desktop | 可运行单会话 Harness；无模型对话、持久化和事件订阅 |
 | Harness | 手册/schema 已存在；无动态加载器 |
 | WorkspaceService | 能力全部显式为 false；无网络服务 |
 | Onboarding、RAG、企业系统、桌宠 | 未实现 |

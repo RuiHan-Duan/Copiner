@@ -350,6 +350,7 @@ name = "copiner-desktop-host"
 version = "0.1.0"
 dependencies = [
  "copiner-core-engine",
+ "serde",
  "tauri",
  "tauri-build",
 ]

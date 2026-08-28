@@ -6,7 +6,7 @@
 
 ## 当前实现
 
-`src/Harness/HarnessNavigation.vue` 只有只读导航，没有加载、编辑、同步或索引能力。
+`src/Harness/HarnessNavigation.vue` 使用文字编号与短标签区分当前运行、归档、Skills 和 Memory，只有只读导航，没有加载、编辑、同步或索引能力。
 
 ## 安全边界
 

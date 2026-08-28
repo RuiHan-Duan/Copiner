@@ -1,25 +1,54 @@
 <script setup lang="ts">
-defineProps<{ connectionLabel: string }>()
+import BrandMark from '../Shared/BrandMark.vue'
+
+defineProps<{ connectionLabel: string; canReset: boolean }>()
+defineEmits<{ reset: [] }>()
 </script>
 
 <template>
   <aside class="navigation-sidebar">
-    <div class="brand">
-      <span
-        class="coin"
-        aria-hidden="true"
-      >C</span>
-      <div><b>Copiner</b><small>Local-first coworker</small></div>
+    <div class="brand-lockup">
+      <BrandMark
+        :size="48"
+        label="Copiner"
+      />
+      <div class="brand-wordmark">
+        <b>Copiner</b>
+        <small>local agent workspace</small>
+      </div>
     </div>
+
+    <section
+      class="workspace-card"
+      aria-label="当前工作区"
+    >
+      <span class="section-label">WORKSPACE</span>
+      <div>
+        <b>本地工作区</b>
+        <span>PRIVATE</span>
+      </div>
+    </section>
+
     <button
       class="new-task"
-      disabled
+      :disabled="!canReset"
+      @click="$emit('reset')"
     >
-      ＋ 新任务
+      <span aria-hidden="true">＋</span>
+      新建任务
     </button>
+
     <slot />
-    <p class="privacy">
-      ● {{ connectionLabel }}
-    </p>
+
+    <div class="runtime-card">
+      <span
+        class="runtime-dot"
+        aria-hidden="true"
+      />
+      <div>
+        <b>{{ connectionLabel }}</b>
+        <small>当前运行仅保存在本地内存</small>
+      </div>
+    </div>
   </aside>
 </template>

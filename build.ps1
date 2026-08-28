@@ -80,8 +80,9 @@ Copiner 构建入口（PowerShell 7）
         Invoke-In '.' { cargo clean }
     }
     'dev' {
-        Require-Tool 'pnpm'
-        Invoke-In 'Desktop' { pnpm exec tauri dev --config ../Crates/DesktopHost/tauri.conf.json }
+        $Tauri = Join-Path $Root 'Desktop/node_modules/.bin/tauri.cmd'
+        if (-not (Test-Path $Tauri)) { throw '缺少 Tauri CLI，请先执行 ./build.ps1 install' }
+        Invoke-In 'Crates/DesktopHost' { & $Tauri dev }
     }
     'workspace-run' {
         Require-Tool 'cargo'

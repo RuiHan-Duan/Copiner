@@ -6,9 +6,11 @@
 
 ## 当前实现
 
-- `src/Conversation/EmptyConversation.vue`：说明 Clarify → Plan → Execute 的基本预期；
-- `src/Conversation/MessageComposer.vue`：Provider 未配置时禁用输入和发送；
+- `src/Conversation/EmptyConversation.vue`：以 Copiner 字标、本地能力说明和起始原则构成空态；运行后展示任务标题、事件轨道和真实完成摘要；
+- `src/Conversation/MessageComposer.vue`：作为主要操作区，仅在 Tauri 本地宿主可用且无活动会话时创建演示任务；
 - 建议项只作视觉占位，不触发 Skill 或企业系统。
+
+当前输入不是模型对话：它只创建进程内 `WorkflowSession`。浏览器开发模式保持只读预览，避免用前端模拟器冒充宿主执行。
 
 ## 扩展边界
 

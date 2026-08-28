@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "identifier": "com.copiner.desktop",
   "build": {
-    "beforeDevCommand": "pnpm --dir ../../Desktop dev",
-    "beforeBuildCommand": "pnpm --dir ../../Desktop build",
+    "beforeDevCommand": "corepack pnpm@11.12.0 --dir ../Desktop dev",
+    "beforeBuildCommand": "corepack pnpm@11.12.0 --dir ../Desktop build",
     "devUrl": "http://localhost:5173",
     "frontendDist": "../../Desktop/dist"
   },

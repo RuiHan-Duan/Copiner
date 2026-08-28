@@ -53,7 +53,7 @@ rust-lint:
 	cargo clippy --workspace --all-targets -- -D warnings
 
 dev:
-	cd Desktop && pnpm exec tauri dev --config ../Crates/DesktopHost/tauri.conf.json
+	cd Crates/DesktopHost && ../../Desktop/node_modules/.bin/tauri dev
 workspace-run:
 	cargo run -p copiner-workspace-service
 
