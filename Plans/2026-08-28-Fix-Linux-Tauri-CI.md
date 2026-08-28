@@ -1,6 +1,6 @@
 # 修复 Linux Tauri CI Plan
 
-> 状态：等待推送确认
+> 状态：已完成
 > 日期：2026-08-28
 > 关联 PR：`#1 codex/local-harness-ui-redesign → main`
 
@@ -118,4 +118,13 @@ cargo test --workspace                                         PASS (16 tests)
 cargo build --workspace                                        PASS
 ```
 
-待完成：创建独立修复提交；取得动作级确认后推送到 `origin/codex/local-harness-ui-redesign`，并以 PR #1 的新 GitHub Actions run 验证 Ubuntu 依赖链。
+远端验证：
+
+```text
+commit 55ba074  推送到 origin/codex/local-harness-ui-redesign
+Actions run 33136173122
+Desktop         PASS (31s)
+Rust workspace  PASS (4m50s)
+```
+
+Rust job 中 `Install Tauri Linux prerequisites`、fmt、clippy、test 与 build 均为 success；原先缺失的 `glib-2.0.pc` 问题已消除。PR #1 保持 Draft，未执行合并。
